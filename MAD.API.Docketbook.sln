@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAD.API.Docketbook", "MAD.API.Docketbook.csproj", "{784AC7BD-45A5-4288-A094-B867FD8582DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{784AC7BD-45A5-4288-A094-B867FD8582DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{784AC7BD-45A5-4288-A094-B867FD8582DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{784AC7BD-45A5-4288-A094-B867FD8582DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{784AC7BD-45A5-4288-A094-B867FD8582DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDF6C22B-5069-46B1-B8F0-6BE8673167A7}
+	EndGlobalSection
+EndGlobal
