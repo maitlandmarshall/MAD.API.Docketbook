@@ -65,7 +65,7 @@
         public bool InheritsAddressBook { get; set; }
 
         [JsonProperty("defaultTemplate")]
-        public Guid DefaultTemplate { get; set; }
+        public string DefaultTemplate { get; set; }
 
         [JsonProperty("monitors")]
         public JArray Monitors { get; set; }
