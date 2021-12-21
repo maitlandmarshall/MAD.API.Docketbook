@@ -10,7 +10,10 @@ namespace MAD.API.Docketbook.OrganisationGroups
         public string PublicName { get; set; }
         public string Timezone { get; set; }
 
-        public Guid OrganisationId { get; set; }
+        public Guid Organisation { get; set; }
+        public Guid? Parent { get; set; }
         public Guid? OrganisationGroupId { get; set; }
+
+        public string Prefix { get; set; }
     }
 }

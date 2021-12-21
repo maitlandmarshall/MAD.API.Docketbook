@@ -104,7 +104,7 @@ namespace MAD.API.Docketbook
             var payload = JsonConvert.SerializeObject(groupDto);
             var httpContent = new StringContent(payload, Encoding.UTF8, "application/json");
 
-            using var response = await this.httpClient.PostAsync($"organisations/{groupDto.OrganisationId}/groups", httpContent);
+            using var response = await this.httpClient.PostAsync($"organisations/{groupDto.Organisation}/groups", httpContent);
             await this.ThrowIfUnsuccessfulRequest(response);
 
             var jsonText = await response.Content.ReadAsStringAsync();
