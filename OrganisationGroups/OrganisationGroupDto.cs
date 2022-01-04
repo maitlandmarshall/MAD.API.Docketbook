@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace MAD.API.Docketbook.OrganisationGroups
@@ -15,5 +16,37 @@ namespace MAD.API.Docketbook.OrganisationGroups
         public Guid? OrganisationGroupId { get; set; }
 
         public string Prefix { get; set; }
+
+        public string Description { get; set; }
+        public string TimeFormat { get; set; }
+        public AddressDto Address { get; set; }
+
+        public class AddressDto
+        {
+            [JsonProperty("streetName")]
+            public string StreetName { get; set; }
+
+            [JsonProperty("suburb")]
+            public string Suburb { get; set; }
+
+            [JsonProperty("state")]
+            public string State { get; set; }
+
+            [JsonProperty("postCode")]
+            public string PostCode { get; set; }
+
+            [JsonProperty("country")]
+            public string Country { get; set; }
+
+            [JsonProperty("designation")]
+            public string Designation { get; set; }
+
+            [JsonProperty("num", NullValueHandling = NullValueHandling.Ignore)]
+            public string Num { get; set; }
+
+            [JsonProperty("streetNum", NullValueHandling = NullValueHandling.Ignore)]
+            public string StreetNum { get; set; }
+        }
+
     }
 }

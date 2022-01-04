@@ -2,13 +2,11 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.1</TargetFramework>
-	</PropertyGroup>
-
-	<PropertyGroup>
+		
 		<Major>1</Major>
 		<Minor>0</Minor>
-		<Build>1</Build>
-		<Revision>$([System.DateTime]::UtcNow.ToString("yyMMddHHmm"))</Revision>
+		<Build>2</Build>
+		<Revision>$([System.DateTime]::UtcNow.ToString("MddHHss"))</Revision>
 
 		<Version>$(Major).$(Minor).$(Build).$(Revision)</Version>
 		<AssemblyVersion>$(Major).$(Minor).$(Build)</AssemblyVersion>
