@@ -2,6 +2,7 @@
 using MAD.API.Docketbook.Orders;
 using MAD.API.Docketbook.FileCodes;
 using MAD.API.Docketbook.OrganisationGroups;
+using MAD.API.Docketbook.OrganisationGroupRoles;
 using MAD.API.Docketbook.Organisations;
 using Newtonsoft.Json;
 using System;
@@ -30,6 +31,11 @@ namespace MAD.API.Docketbook
         public async Task<IEnumerable<OrganisationGroup>> GetOrganisationGroups(Guid orgGuid)
         {
             return await this.GetApiResponse<IEnumerable<OrganisationGroup>>($"organisations/{orgGuid}/groups");
+        }
+
+        public async Task<IEnumerable<OrganisationGroupRole>> GetOrganisationGroupRoles(Guid orgGuid, Guid groupGuid)
+        {
+            return await this.GetApiResponse<IEnumerable<OrganisationGroupRole>>($"organisations/{orgGuid}/groups/{groupGuid}/roles");
         }
 
         public async Task<IEnumerable<Docket>> GetOrganisationGroupDockets(Guid orgGuid, Guid groupGuid)
