@@ -21,6 +21,8 @@ namespace MAD.API.Docketbook.OrganisationGroups
         public string TimeFormat { get; set; }
         public AddressDto Address { get; set; }
 
+        public Guid? DefaultTemplate { get; set; }
+
         public class AddressDto
         {
             [JsonProperty("streetName")]
