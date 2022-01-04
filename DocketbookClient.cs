@@ -121,6 +121,19 @@ namespace MAD.API.Docketbook
             return pdfStream;
         }
 
+        public async Task<FileCode> CreateFileCode(FileCodeDto groupDto)
+        {
+            var payload = JsonConvert.SerializeObject(groupDto);
+            var httpContent = new StringContent(payload, Encoding.UTF8, "application/json");
+
+            using var response = await this.httpClient.PostAsync($"organisations/{groupDto.Organisation}/groups/{groupDto.OrganisationGroup}/filecodes", httpContent);
+            await this.ThrowIfUnsuccessfulRequest(response);
+
+            var jsonText = await response.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject<FileCode>(jsonText);
+        }
+
         private async Task<T> GetApiResponse<T>(string apiUri)
         {
             using var response = await this.httpClient.GetAsync(apiUri);

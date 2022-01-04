@@ -5,8 +5,8 @@
 		
 		<Major>1</Major>
 		<Minor>0</Minor>
-		<Build>2</Build>
-		<Revision>$([System.DateTime]::UtcNow.ToString("MddHHss"))</Revision>
+		<Build>3</Build>
+		<Revision>$([System.DateTime]::UtcNow.ToString("MddHHmmss"))</Revision>
 
 		<Version>$(Major).$(Minor).$(Build).$(Revision)</Version>
 		<AssemblyVersion>$(Major).$(Minor).$(Build)</AssemblyVersion>
