@@ -16,6 +16,10 @@ namespace MAD.API.Docketbook.Orders
         public string OrderNumber { get; set; }
         public string CustomerRefNo { get; set; }
 
+        public string SupplierRefNo { get; set; }
+        public string Notes { get; set; }
+        public Guid? Template { get; set; }
+
         public IEnumerable<OrderLineDto> LineItems { get; set; }
 
         public OrderContactDto CustomerContact { get; set; }
