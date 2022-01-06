@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-
-using System.Globalization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 
 namespace MAD.API.Docketbook.Dockets
 {
@@ -25,6 +21,9 @@ namespace MAD.API.Docketbook.Dockets
         [JsonProperty("authorName")]
         public string AuthorName { get; set; }
 
+        [JsonProperty("breakTime", NullValueHandling = NullValueHandling.Ignore)]
+        public long? BreakTime { get; set; }
+
         [JsonProperty("createdAt")]
         public DateTimeOffset CreatedAt { get; set; }
 
@@ -34,11 +33,17 @@ namespace MAD.API.Docketbook.Dockets
         [JsonProperty("customerRefNo", NullValueHandling = NullValueHandling.Ignore)]
         public string CustomerRefNo { get; set; }
 
+        [JsonProperty("customerSignatureName", NullValueHandling = NullValueHandling.Ignore)]
+        public string CustomerSignatureName { get; set; }
+
         [JsonProperty("date")]
         public DateTimeOffset Date { get; set; }
 
         [JsonProperty("docketNumber")]
         public string DocketNumber { get; set; }
+
+        [JsonProperty("endTime")]
+        public DateTimeOffset? EndTime { get; set; }
 
         [JsonProperty("id")]
         public Guid Id { get; set; }
@@ -64,6 +69,9 @@ namespace MAD.API.Docketbook.Dockets
         [JsonProperty("supplierContact")]
         public SupplierContact SupplierContact { get; set; }
 
+        [JsonProperty("startTime")]
+        public DateTimeOffset? StartTime { get; set; }
+
         [JsonProperty("supplierRefNo", NullValueHandling = NullValueHandling.Ignore)]
         public string SupplierRefNo { get; set; }
 
@@ -72,6 +80,9 @@ namespace MAD.API.Docketbook.Dockets
 
         [JsonProperty("tracked")]
         public bool Tracked { get; set; }
+
+        [JsonProperty("travelTime", NullValueHandling = NullValueHandling.Ignore)]
+        public long? TravelTime { get; set; }
 
         [JsonProperty("updateHash")]
         public string UpdateHash { get; set; }
@@ -82,26 +93,35 @@ namespace MAD.API.Docketbook.Dockets
         [JsonProperty("visibleInDraft")]
         public bool VisibleInDraft { get; set; }
 
-        [JsonProperty("customerSignatureName", NullValueHandling = NullValueHandling.Ignore)]
-        public string CustomerSignatureName { get; set; }
-
         [JsonProperty("jobRef", NullValueHandling = NullValueHandling.Ignore)]
         public Guid? JobRef { get; set; }
+
+        [JsonProperty("acceptedBy", NullValueHandling = NullValueHandling.Ignore)]
+        public AcceptedBy AcceptedBy { get; set; }
+
+        [JsonProperty("rejectionComment", NullValueHandling = NullValueHandling.Ignore)]
+        public string RejectionComment { get; set; }
     }
 
-    public partial class AccessControl : JObject
+    public partial class AcceptedBy
     {
-        public AccessControl()
-        {
-        }
+        [JsonProperty("organisation")]
+        public string Organisation { get; set; }
 
-        public AccessControl(JObject other) : base(other)
-        {
-        }
+        [JsonProperty("organisationGroup")]
+        public string OrganisationGroup { get; set; }
 
-        public AccessControl(params object[] content) : base(content)
-        {
-        }
+        [JsonProperty("organisationGroupId")]
+        public Guid OrganisationGroupId { get; set; }
+
+        [JsonProperty("organisationId")]
+        public Guid OrganisationId { get; set; }
+
+        [JsonProperty("user")]
+        public string User { get; set; }
+
+        [JsonProperty("userId")]
+        public Guid UserId { get; set; }
     }
 
     public partial class Attachment
