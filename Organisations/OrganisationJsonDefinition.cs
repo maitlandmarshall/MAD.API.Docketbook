@@ -29,7 +29,7 @@
         public List<OrganisationContact> Contacts { get; set; }
 
         [JsonProperty("currentPlanId")]
-        public Guid? CurrentPlanId { get; set; }
+        public string CurrentPlanId { get; set; }
 
         [JsonProperty("accessAllowed")]
         public bool AccessAllowed { get; set; }
