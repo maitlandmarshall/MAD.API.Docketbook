@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MAD.API.Docketbook", "MAD.API.Docketbook.csproj", "{784AC7BD-45A5-4288-A094-B867FD8582DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAD.API.Docketbook.Tests", "..\MAD.API.Docketbook.Tests\MAD.API.Docketbook.Tests.csproj", "{FA0E5FD6-5A35-4C51-9C45-842F40A22E6A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{784AC7BD-45A5-4288-A094-B867FD8582DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{784AC7BD-45A5-4288-A094-B867FD8582DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{784AC7BD-45A5-4288-A094-B867FD8582DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA0E5FD6-5A35-4C51-9C45-842F40A22E6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA0E5FD6-5A35-4C51-9C45-842F40A22E6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA0E5FD6-5A35-4C51-9C45-842F40A22E6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA0E5FD6-5A35-4C51-9C45-842F40A22E6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

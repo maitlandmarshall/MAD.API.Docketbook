@@ -13,6 +13,7 @@ namespace MAD.API.Docketbook
             serviceDescriptors.AddTransient<DocketbookConfig>(y => y.GetRequiredService<IOptions<DocketbookConfig>>().Value);
 
             serviceDescriptors.AddTransient<DocketbookAuthDelegatingHandler>();
+            serviceDescriptors.AddTransient<NameValueCollectionFactory>();
 
             serviceDescriptors
                 .AddHttpClient<DocketbookClient>(configureClient: (HttpClient y) => y.BaseAddress = new System.Uri("https://my.docketbook.com.au/v1/"))
