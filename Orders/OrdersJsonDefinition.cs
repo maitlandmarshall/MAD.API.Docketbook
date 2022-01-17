@@ -128,7 +128,7 @@ namespace MAD.API.Docketbook.Orders
         public bool Active { get; set; }
 
         [JsonProperty("externalIdentifiers")]
-        public JObject ExternalIdentifiers { get; set; }
+        public JArray ExternalIdentifiers { get; set; }
 
         [JsonProperty("uom")]
         public Uom Uom { get; set; }
