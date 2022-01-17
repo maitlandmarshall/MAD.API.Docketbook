@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 
 namespace MAD.API.Docketbook.Dockets
 {
@@ -10,10 +11,10 @@ namespace MAD.API.Docketbook.Dockets
         public JObject AccessControl { get; set; }
 
         [JsonProperty("additionalContacts")]
-        public object[] AdditionalContacts { get; set; }
+        public List<object> AdditionalContacts { get; set; }
 
         [JsonProperty("attachments")]
-        public Attachment[] Attachments { get; set; }
+        public List<Attachment> Attachments { get; set; }
 
         [JsonProperty("author")]
         public Guid Author { get; set; }
@@ -58,13 +59,13 @@ namespace MAD.API.Docketbook.Dockets
         public Guid OrganisationGroup { get; set; }
 
         [JsonProperty("resources")]
-        public DocketResource[] Resources { get; set; }
+        public List<DocketResource> Resources { get; set; }
 
         [JsonProperty("status")]
         public string Status { get; set; }
 
         [JsonProperty("subDockets")]
-        public object[] SubDockets { get; set; }
+        public List<object> SubDockets { get; set; }
 
         [JsonProperty("supplierContact")]
         public SupplierContact SupplierContact { get; set; }
@@ -148,7 +149,7 @@ namespace MAD.API.Docketbook.Dockets
     public partial class CustomerContact
     {
         [JsonProperty("addresses")]
-        public CustomerContactAddress[] Addresses { get; set; }
+        public List<CustomerContactAddress> Addresses { get; set; }
 
         [JsonProperty("contactAddresses")]
         public JObject ContactAddresses { get; set; }
@@ -157,7 +158,7 @@ namespace MAD.API.Docketbook.Dockets
         public string DisplayName { get; set; }
 
         [JsonProperty("reassignments")]
-        public object[] Reassignments { get; set; }
+        public List<object> Reassignments { get; set; }
     }
 
     public partial class CustomerContactAddress
@@ -194,7 +195,7 @@ namespace MAD.API.Docketbook.Dockets
         public Guid Id { get; set; }
 
         [JsonProperty("interactions")]
-        public Interaction[] Interactions { get; set; }
+        public List<Interaction> Interactions { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -242,7 +243,7 @@ namespace MAD.API.Docketbook.Dockets
         public bool Billable { get; set; }
 
         [JsonProperty("fields")]
-        public InteractionTemplateField[] Fields { get; set; }
+        public List<InteractionTemplateField> Fields { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -266,7 +267,7 @@ namespace MAD.API.Docketbook.Dockets
         public bool Mandatory { get; set; }
 
         [JsonProperty("selectionFields")]
-        public object[] SelectionFields { get; set; }
+        public List<object> SelectionFields { get; set; }
 
         [JsonProperty("type")]
         public string Type { get; set; }
@@ -347,7 +348,7 @@ namespace MAD.API.Docketbook.Dockets
     public partial class SupplierContact
     {
         [JsonProperty("addresses")]
-        public SupplierContactAddress[] Addresses { get; set; }
+        public List<SupplierContactAddress> Addresses { get; set; }
 
         [JsonProperty("contactAddresses")]
         public JObject ContactAddresses { get; set; }
@@ -356,7 +357,7 @@ namespace MAD.API.Docketbook.Dockets
         public string DisplayName { get; set; }
 
         [JsonProperty("reassignments")]
-        public object[] Reassignments { get; set; }
+        public List<object> Reassignments { get; set; }
     }
 
     public partial class SupplierContactAddress
@@ -392,22 +393,22 @@ namespace MAD.API.Docketbook.Dockets
         public bool Active { get; set; }
 
         [JsonProperty("additionalContactNames")]
-        public object[] AdditionalContactNames { get; set; }
+        public List<object> AdditionalContactNames { get; set; }
 
         [JsonProperty("attachments")]
-        public object[] Attachments { get; set; }
+        public List<object> Attachments { get; set; }
 
         [JsonProperty("blocks")]
-        public Block[] Blocks { get; set; }
+        public List<Block> Blocks { get; set; }
 
         [JsonProperty("checklistContainers")]
-        public ChecklistContainer[] ChecklistContainers { get; set; }
+        public List<ChecklistContainer> ChecklistContainers { get; set; }
 
         [JsonProperty("id")]
         public Guid Id { get; set; }
 
         [JsonProperty("interactionTemplates")]
-        public InteractionTemplateElement[] InteractionTemplates { get; set; }
+        public List<InteractionTemplateElement> InteractionTemplates { get; set; }
 
         [JsonProperty("minimumInteractionRequired")]
         public bool MinimumInteractionRequired { get; set; }
@@ -431,7 +432,7 @@ namespace MAD.API.Docketbook.Dockets
     public partial class Block
     {
         [JsonProperty("fields")]
-        public object[] Fields { get; set; }
+        public List<object> Fields { get; set; }
 
         [JsonProperty("id")]
         public Guid Id { get; set; }
@@ -467,7 +468,7 @@ namespace MAD.API.Docketbook.Dockets
         public bool Active { get; set; }
 
         [JsonProperty("fields")]
-        public ChecklistTemplateField[] Fields { get; set; }
+        public List<ChecklistTemplateField> Fields { get; set; }
 
         [JsonProperty("id")]
         public Guid Id { get; set; }
@@ -494,7 +495,7 @@ namespace MAD.API.Docketbook.Dockets
     public partial class InteractionTemplateElement
     {
         [JsonProperty("actorCategories")]
-        public Category[] ActorCategories { get; set; }
+        public List<Category> ActorCategories { get; set; }
 
         [JsonProperty("actorFromOrder")]
         public bool ActorFromOrder { get; set; }
@@ -503,7 +504,7 @@ namespace MAD.API.Docketbook.Dockets
         public bool Billable { get; set; }
 
         [JsonProperty("categories")]
-        public object[] Categories { get; set; }
+        public List<object> Categories { get; set; }
 
         [JsonProperty("childFromOrder")]
         public bool ChildFromOrder { get; set; }
@@ -512,7 +513,7 @@ namespace MAD.API.Docketbook.Dockets
         public string Description { get; set; }
 
         [JsonProperty("fields")]
-        public InteractionTemplateField[] Fields { get; set; }
+        public List<InteractionTemplateField> Fields { get; set; }
 
         [JsonProperty("mode")]
         public string Mode { get; set; }
