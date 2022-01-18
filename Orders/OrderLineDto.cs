@@ -10,5 +10,7 @@ namespace MAD.API.Docketbook.Orders
         public string Status { get; set; }
         public Guid? Id { get; set; }
         public bool? Delete { get; set; }
+
+        public string SupplierRef { get; set; }
     }
 }
