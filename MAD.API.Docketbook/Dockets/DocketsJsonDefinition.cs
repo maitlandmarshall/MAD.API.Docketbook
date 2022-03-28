@@ -104,6 +104,12 @@ namespace MAD.API.Docketbook.Dockets
         public string RejectionComment { get; set; }
     }
 
+    public class DocketTemplateValueStore
+    {
+        [JsonProperty("templateValueStore")]
+        public JObject TemplateValueStore { get; set; }
+    }
+
     public partial class AcceptedBy
     {
         [JsonProperty("organisation")]
