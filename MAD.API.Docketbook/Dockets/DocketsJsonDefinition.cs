@@ -432,7 +432,7 @@ namespace MAD.API.Docketbook.Dockets
     public partial class Block
     {
         [JsonProperty("fields")]
-        public List<object> Fields { get; set; }
+        public JArray Fields { get; set; }
 
         [JsonProperty("id")]
         public Guid Id { get; set; }
