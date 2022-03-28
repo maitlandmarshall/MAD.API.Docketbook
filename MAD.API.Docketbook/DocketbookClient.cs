@@ -1,17 +1,16 @@
 ﻿using MAD.API.Docketbook.Dockets;
-using MAD.API.Docketbook.Orders;
 using MAD.API.Docketbook.FileCodes;
-using MAD.API.Docketbook.OrganisationGroups;
+using MAD.API.Docketbook.Orders;
 using MAD.API.Docketbook.OrganisationGroupRoles;
+using MAD.API.Docketbook.OrganisationGroups;
 using MAD.API.Docketbook.Organisations;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
-using System.Threading.Tasks;
 using System.Text;
-using System.Collections.Specialized;
+using System.Threading.Tasks;
 
 namespace MAD.API.Docketbook
 {
@@ -44,6 +43,11 @@ namespace MAD.API.Docketbook
         public async Task<IEnumerable<Docket>> GetOrganisationGroupDockets(Guid orgGuid, Guid groupGuid, int? limit = null, int? offset = null)
         {
             return await this.GetApiResponse<IEnumerable<Docket>>($"organisations/{orgGuid}/groups/{groupGuid}/dockets", new { limit, offset });
+        }
+
+        public async Task<DocketTemplateValueStore> GetDocketTemplateValueStore(Guid orgGuid, Guid groupGuid, Guid docketId, int? limit = null, int? offset = null)
+        {
+            return await this.GetApiResponse<DocketTemplateValueStore>($"organisations/{orgGuid}/groups/{groupGuid}/dockets/{docketId}", new { limit, offset });
         }
 
         public async Task<IEnumerable<Order>> GetOrganisationGroupOrders(Guid orgGuid, Guid groupGuid, int? limit = null, int? offset = null)
