@@ -102,6 +102,9 @@ namespace MAD.API.Docketbook.Dockets
 
         [JsonProperty("rejectionComment", NullValueHandling = NullValueHandling.Ignore)]
         public string RejectionComment { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 
     public class DocketTemplateValueStore
@@ -438,7 +441,7 @@ namespace MAD.API.Docketbook.Dockets
     public partial class Block
     {
         [JsonProperty("fields")]
-        public JArray Fields { get; set; }
+        public List<BlockField> Fields { get; set; }
 
         [JsonProperty("id")]
         public Guid Id { get; set; }
@@ -451,6 +454,39 @@ namespace MAD.API.Docketbook.Dockets
 
         [JsonProperty("type")]
         public string Type { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
+    }
+
+    public partial class BlockField
+    {
+        [JsonProperty("active")]
+        public bool Active { get; set; }
+
+        [JsonProperty("displayName")]
+        public string DisplayName { get; set; }
+
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
+        [JsonProperty("mandatory")]
+        public bool Mandatory { get; set; }
+
+        [JsonProperty("organisation")]
+        public string Organisation { get; set; }
+
+        [JsonProperty("referenceName")]
+        public string ReferenceName { get; set; }
+
+        [JsonProperty("selectionFields")]
+        public List<object> SelectionFields { get; set; }
+
+        [JsonProperty("type")]
+        public string Type { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 
     public partial class ChecklistContainer
