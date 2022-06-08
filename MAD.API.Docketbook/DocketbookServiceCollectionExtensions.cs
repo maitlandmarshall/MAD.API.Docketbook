@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using MAD.API.Docketbook.Dockets;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System;
 using System.Net.Http;
@@ -17,6 +18,10 @@ namespace MAD.API.Docketbook
 
             serviceDescriptors
                 .AddHttpClient<DocketbookClient>(configureClient: (HttpClient y) => y.BaseAddress = new System.Uri("https://my.docketbook.com.au/v1/"))
+                .AddHttpMessageHandler<DocketbookAuthDelegatingHandler>();
+
+            serviceDescriptors
+                .AddHttpClient<DocketIngestClient>(configureClient: y => y.BaseAddress = new Uri("https://ingestor.docketbook.io/"))
                 .AddHttpMessageHandler<DocketbookAuthDelegatingHandler>();
 
             return serviceDescriptors;
