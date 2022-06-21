@@ -14,9 +14,14 @@ namespace MAD.API.Docketbook.Dockets
             this.httpClient = httpClient;
         }
 
-        public async Task Ingest(DocketIngestRequest docketIngestRequest)
+        public async Task<DocketIngestResponseDto> Ingest(DocketIngestRequest docketIngestRequest)
         {
-            await this.httpClient.PostAsync("ingest", new StringContent(JsonConvert.SerializeObject(docketIngestRequest), Encoding.UTF8, "application/json"));
+            var response = await this.httpClient.PostAsync("ingest", new StringContent(JsonConvert.SerializeObject(docketIngestRequest), Encoding.UTF8, "application/json"));
+            
+            response.EnsureSuccessStatusCode();
+
+            var responseBody = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<DocketIngestResponseDto>(responseBody);
         }
     }
 }
