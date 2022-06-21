@@ -45,6 +45,11 @@ namespace MAD.API.Docketbook
             return await this.GetApiResponse<IEnumerable<Docket>>($"organisations/{orgGuid}/groups/{groupGuid}/dockets", new { limit, offset });
         }
 
+        public async Task<Docket> GetOrganisationGroupDocket(Guid orgGuid, Guid groupGuid, Guid docketId)
+        {
+            return await this.GetApiResponse<Docket>($"organisations/{orgGuid}/groups/{groupGuid}/dockets/{docketId}");
+        }
+
         public async Task<DocketTemplateValueStore> GetDocketTemplateValueStore(Guid orgGuid, Guid groupGuid, Guid docketId, int? limit = null, int? offset = null)
         {
             return await this.GetApiResponse<DocketTemplateValueStore>($"organisations/{orgGuid}/groups/{groupGuid}/dockets/{docketId}", new { limit, offset });
