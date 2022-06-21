@@ -23,5 +23,15 @@ namespace MAD.API.Docketbook.Dockets
             var responseBody = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<DocketIngestResponseDto>(responseBody);
         }
+
+        public async Task<DocketInfoResponseDto> GetDocketInfo(string ingestId)
+        {
+            var response = await this.httpClient.GetAsync($"docket_info/{ingestId}");
+
+            response.EnsureSuccessStatusCode();
+
+            var responseBody = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<DocketInfoResponseDto>(responseBody);
+        }
     }
 }
