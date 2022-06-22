@@ -183,7 +183,10 @@ namespace MAD.API.Docketbook
             if (response.IsSuccessStatusCode == false)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                throw new DocketbookApiException($"{response.StatusCode} - {content}");
+                throw new DocketbookApiException($"{response.StatusCode} - {content}")
+                {
+                    StatusCode = response.StatusCode
+                };
             }
         }
     }

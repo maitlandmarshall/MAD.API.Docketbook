@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Runtime.Serialization;
 
 namespace MAD.API.Docketbook
@@ -21,5 +22,7 @@ namespace MAD.API.Docketbook
         protected DocketbookApiException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
+
+        public HttpStatusCode StatusCode { get; set; }
     }
 }
