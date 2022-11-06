@@ -40,9 +40,9 @@ namespace MAD.API.Docketbook
             return await this.GetApiResponse<IEnumerable<OrganisationGroupRole>>($"organisations/{orgGuid}/groups/{groupGuid}/roles", new { limit, offset });
         }
 
-        public async Task<IEnumerable<Docket>> GetOrganisationGroupDockets(Guid orgGuid, Guid groupGuid, int? limit = null, int? offset = null)
+        public async Task<IEnumerable<Docket>> GetOrganisationGroupDockets(Guid orgGuid, Guid groupGuid, int? limit = null, int? offset = null, DateTime? fromDate = null, DateTime? toDate = null)
         {
-            return await this.GetApiResponse<IEnumerable<Docket>>($"organisations/{orgGuid}/groups/{groupGuid}/dockets", new { limit, offset });
+            return await this.GetApiResponse<IEnumerable<Docket>>($"organisations/{orgGuid}/groups/{groupGuid}/dockets", new { limit, offset, fromDate, toDate });
         }
 
         public async Task<Docket> GetOrganisationGroupDocket(Guid orgGuid, Guid groupGuid, Guid docketId)
@@ -55,9 +55,9 @@ namespace MAD.API.Docketbook
             return await this.GetApiResponse<DocketTemplateValueStore>($"organisations/{orgGuid}/groups/{groupGuid}/dockets/{docketId}", new { limit, offset });
         }
 
-        public async Task<IEnumerable<Order>> GetOrganisationGroupOrders(Guid orgGuid, Guid groupGuid, int? limit = null, int? offset = null)
+        public async Task<IEnumerable<Order>> GetOrganisationGroupOrders(Guid orgGuid, Guid groupGuid, int? limit = null, int? offset = null, DateTime? fromDate = null, DateTime? toDate = null)
         {
-            return await this.GetApiResponse<IEnumerable<Order>>($"organisations/{orgGuid}/groups/{groupGuid}/orders", new { limit, offset });
+            return await this.GetApiResponse<IEnumerable<Order>>($"organisations/{orgGuid}/groups/{groupGuid}/orders", new { limit, offset, fromDate, toDate });
         }
 
         public async Task<Order> GetOrganisationGroupOrder(Guid orgGuid, Guid groupGuid, Guid orderId, int? limit = null, int? offset = null)

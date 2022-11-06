@@ -19,7 +19,14 @@ namespace MAD.API.Docketbook
                     var key = pi.Name;
                     var val = pi.GetValue(obj, null);
 
-                    if (val != null)
+                    if (val is null)
+                        return;
+
+                    if (val is DateTime dte)
+                    {
+                        nvc.Add(key, dte.ToString("yyyy-MM-dd"));
+                    }
+                    else
                     {
                         nvc.Add(key, val.ToString());
                     }

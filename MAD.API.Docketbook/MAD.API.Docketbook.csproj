@@ -4,8 +4,8 @@
 		<TargetFramework>netstandard2.1</TargetFramework>
 		
 		<Major>1</Major>
-		<Minor>4</Minor>
-		<Build>3</Build>
+		<Minor>5</Minor>
+		<Build>0</Build>
 		<Revision>$([System.DateTime]::UtcNow.ToString("MddHHmm"))</Revision>
 
 		<Version>$(Major).$(Minor).$(Build).$(Revision)</Version>
