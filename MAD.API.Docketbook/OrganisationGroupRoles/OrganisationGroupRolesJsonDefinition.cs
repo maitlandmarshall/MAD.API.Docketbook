@@ -1,11 +1,8 @@
 ﻿namespace MAD.API.Docketbook.OrganisationGroupRoles
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-
-    using System.Globalization;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
 
     public partial class OrganisationGroupRole
     {
@@ -26,6 +23,9 @@
 
         [JsonProperty("enabled")]
         public bool Enabled { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 
     public partial class OrganisationGroupRolePermission
@@ -38,5 +38,8 @@
 
         [JsonProperty("deny")]
         public bool Deny { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 }

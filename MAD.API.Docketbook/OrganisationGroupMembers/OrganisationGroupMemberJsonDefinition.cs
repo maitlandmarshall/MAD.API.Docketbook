@@ -1,11 +1,8 @@
 ﻿namespace MAD.API.Docketbook.OrganisationGroupMembers
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-
-    using System.Globalization;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
 
     public partial class OrganisationGroupMember
     {
@@ -50,6 +47,9 @@
 
         [JsonProperty("onDocketbook")]
         public bool OnDocketbook { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 
     public partial class Name

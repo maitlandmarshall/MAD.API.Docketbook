@@ -75,6 +75,9 @@ namespace MAD.API.Docketbook.Orders
 
         [JsonProperty("updatedAt")]
         public DateTimeOffset UpdatedAt { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 
     public partial class OrderItem
@@ -91,6 +94,9 @@ namespace MAD.API.Docketbook.Orders
         [JsonProperty("quantity")]
         public long Quantity { get; set; }
 
+        [JsonProperty("rate")]
+        public double Rate { get; set; }
+
         [JsonProperty("resource")]
         public Resource Resource { get; set; }
 
@@ -99,6 +105,9 @@ namespace MAD.API.Docketbook.Orders
 
         [JsonProperty("customerRef")]
         public string CustomerRef { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 
     public partial class Resource
@@ -135,6 +144,9 @@ namespace MAD.API.Docketbook.Orders
 
         [JsonProperty("category")]
         public Category Category { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 
     public partial class Category
@@ -153,6 +165,9 @@ namespace MAD.API.Docketbook.Orders
 
         [JsonProperty("active")]
         public bool Active { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 
     public partial class Uom
@@ -180,6 +195,9 @@ namespace MAD.API.Docketbook.Orders
 
         [JsonProperty("updatedAt")]
         public DateTimeOffset UpdatedAt { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 
     public partial class OrderEventLog
@@ -198,6 +216,9 @@ namespace MAD.API.Docketbook.Orders
 
         [JsonProperty("userName")]
         public string UserName { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 
     public partial class Contact
@@ -213,6 +234,9 @@ namespace MAD.API.Docketbook.Orders
 
         [JsonProperty("reassignments")]
         public JArray Reassignments { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 
     public partial class Address
@@ -240,5 +264,8 @@ namespace MAD.API.Docketbook.Orders
 
         [JsonProperty("num", NullValueHandling = NullValueHandling.Ignore)]
         public string Num { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 }

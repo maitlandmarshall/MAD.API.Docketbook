@@ -1,12 +1,9 @@
 ﻿namespace MAD.API.Docketbook.OrganisationGroups
 {
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
     using System;
     using System.Collections.Generic;
-
-    using System.Globalization;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using Newtonsoft.Json.Linq;
 
     public partial class OrganisationGroup
     {
@@ -81,6 +78,9 @@
 
         [JsonProperty("active")]
         public bool Active { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 
     public partial class Address
@@ -111,6 +111,9 @@
 
         [JsonProperty("streetNum", NullValueHandling = NullValueHandling.Ignore)]
         public string StreetNum { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 
     public partial class OrganisationGroupMember
@@ -123,5 +126,8 @@
 
         [JsonProperty("role")]
         public Guid Role { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 }
