@@ -1,12 +1,9 @@
 ﻿namespace MAD.API.Docketbook.Organisations
 {
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
     using System;
     using System.Collections.Generic;
-
-    using System.Globalization;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using Newtonsoft.Json.Linq;
 
     public partial class Organisation
     {
@@ -57,6 +54,9 @@
 
         [JsonProperty("trial_end")]
         public long TrialEnd { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 
     public partial class OrganisationContact
@@ -75,6 +75,9 @@
 
         [JsonProperty("emailAddress")]
         public string EmailAddress { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 
     public partial class Group
@@ -150,6 +153,9 @@
 
         [JsonProperty("prefix", NullValueHandling = NullValueHandling.Ignore)]
         public string Prefix { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 
     public partial class Address
@@ -180,6 +186,9 @@
 
         [JsonProperty("designation")]
         public string Designation { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 
     public partial class Member
@@ -192,12 +201,18 @@
 
         [JsonProperty("role")]
         public Guid Role { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 
     public partial class OrganisationPlan
     {
         [JsonProperty("features")]
         public PlanFeatures Features { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 
     public partial class PlanFeatures
@@ -267,5 +282,8 @@
 
         [JsonProperty("reportingEnabled")]
         public string ReportingEnabled { get; set; }
+
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalData { get; set; } = new Dictionary<string, object>();
     }
 }
