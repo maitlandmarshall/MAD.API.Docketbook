@@ -95,7 +95,7 @@ namespace MAD.API.Docketbook.Orders
         public long Quantity { get; set; }
 
         [JsonProperty("rate")]
-        public double Rate { get; set; }
+        public double? Rate { get; set; }
 
         [JsonProperty("resource")]
         public Resource Resource { get; set; }
