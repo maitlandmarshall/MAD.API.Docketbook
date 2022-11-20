@@ -18,6 +18,8 @@ namespace MAD.API.Docketbook.Orders
 
         public UomDto Uom { get; set; }
 
+        public double? Rate { get; set; }
+
         public class UomDto
         {
             public Guid Id { get; set; }
