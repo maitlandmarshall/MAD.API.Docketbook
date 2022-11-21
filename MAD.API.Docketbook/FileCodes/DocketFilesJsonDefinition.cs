@@ -1,12 +1,9 @@
 ﻿namespace MAD.API.Docketbook.FileCodes
 {
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
     using System;
     using System.Collections.Generic;
-
-    using System.Globalization;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using Newtonsoft.Json.Linq;
 
     public partial class DocketFile
     {
@@ -134,7 +131,7 @@
         public DateTimeOffset CreatedAt { get; set; }
 
         [JsonProperty("customFields")]
-        public JObject CustomFields { get; set; }
+        public JToken CustomFields { get; set; }
 
         [JsonProperty("id")]
         public Guid Id { get; set; }
