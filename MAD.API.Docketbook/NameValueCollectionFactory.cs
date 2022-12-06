@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Text;
 using System.Web;
 
 namespace MAD.API.Docketbook
@@ -25,6 +23,10 @@ namespace MAD.API.Docketbook
                     if (val is DateTime dte)
                     {
                         nvc.Add(key, dte.ToString("yyyy-MM-dd"));
+                    }
+                    else if (val is DateTimeOffset offset)
+                    {
+                        nvc.Add(key, offset.ToString("O"));
                     }
                     else
                     {

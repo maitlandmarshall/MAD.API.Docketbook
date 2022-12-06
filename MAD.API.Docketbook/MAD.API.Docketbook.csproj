@@ -2,14 +2,14 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.1</TargetFramework>
-		
-		<Major>1</Major>
-		<Minor>6</Minor>
-		<Build>3</Build>
-		<Revision>$([System.DateTime]::UtcNow.ToString("MddHHmm"))</Revision>
+	</PropertyGroup>
 
-		<Version>$(Major).$(Minor).$(Build).$(Revision)</Version>
-		<AssemblyVersion>$(Major).$(Minor).$(Build)</AssemblyVersion>
+	<PropertyGroup>
+		<VersionPrefix>1.6.4</VersionPrefix>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
+		<VersionSuffix>rev.$([System.DateTime]::UtcNow.ToString("MddHHmm"))</VersionSuffix>
 	</PropertyGroup>
 
 	<ItemGroup>

@@ -27,57 +27,57 @@ namespace MAD.API.Docketbook
 
         public async Task<IEnumerable<Organisation>> GetOrganisations()
         {
-            return await this.GetApiResponse<IEnumerable<Organisation>>("organisations");
+            return await GetApiResponse<IEnumerable<Organisation>>("organisations");
         }
 
         public async Task<IEnumerable<OrganisationGroup>> GetOrganisationGroups(Guid orgGuid)
         {
-            return await this.GetApiResponse<IEnumerable<OrganisationGroup>>($"organisations/{orgGuid}/groups");
+            return await GetApiResponse<IEnumerable<OrganisationGroup>>($"organisations/{orgGuid}/groups");
         }
 
         public async Task<IEnumerable<OrganisationGroupRole>> GetOrganisationGroupRoles(Guid orgGuid, Guid groupGuid, int? limit = null, int? offset = null)
         {
-            return await this.GetApiResponse<IEnumerable<OrganisationGroupRole>>($"organisations/{orgGuid}/groups/{groupGuid}/roles", new { limit, offset });
+            return await GetApiResponse<IEnumerable<OrganisationGroupRole>>($"organisations/{orgGuid}/groups/{groupGuid}/roles", new { limit, offset });
         }
 
-        public async Task<IEnumerable<Docket>> GetOrganisationGroupDockets(Guid orgGuid, Guid groupGuid, int? limit = null, int? offset = null, DateTime? fromDate = null, DateTime? toDate = null)
+        public async Task<IEnumerable<Docket>> GetOrganisationGroupDockets(Guid orgGuid, Guid groupGuid, int? limit = null, int? offset = null, DateTime? fromDate = null, DateTime? toDate = null, DateTimeOffset? updatedFrom = null, DateTimeOffset? updatedTo = null)
         {
-            return await this.GetApiResponse<IEnumerable<Docket>>($"organisations/{orgGuid}/groups/{groupGuid}/dockets", new { limit, offset, fromDate, toDate });
+            return await GetApiResponse<IEnumerable<Docket>>($"organisations/{orgGuid}/groups/{groupGuid}/dockets", new { limit, offset, fromDate, toDate, updatedFrom, updatedTo });
         }
 
         public async Task<Docket> GetOrganisationGroupDocket(Guid orgGuid, Guid groupGuid, Guid docketId)
         {
-            return await this.GetApiResponse<Docket>($"organisations/{orgGuid}/groups/{groupGuid}/dockets/{docketId}");
+            return await GetApiResponse<Docket>($"organisations/{orgGuid}/groups/{groupGuid}/dockets/{docketId}");
         }
 
         public async Task<DocketTemplateValueStore> GetDocketTemplateValueStore(Guid orgGuid, Guid groupGuid, Guid docketId, int? limit = null, int? offset = null)
         {
-            return await this.GetApiResponse<DocketTemplateValueStore>($"organisations/{orgGuid}/groups/{groupGuid}/dockets/{docketId}", new { limit, offset });
+            return await GetApiResponse<DocketTemplateValueStore>($"organisations/{orgGuid}/groups/{groupGuid}/dockets/{docketId}", new { limit, offset });
         }
 
         public async Task<IEnumerable<Order>> GetOrganisationGroupOrders(Guid orgGuid, Guid groupGuid, int? limit = null, int? offset = null, DateTime? fromDate = null, DateTime? toDate = null)
         {
-            return await this.GetApiResponse<IEnumerable<Order>>($"organisations/{orgGuid}/groups/{groupGuid}/orders", new { limit, offset, fromDate, toDate });
+            return await GetApiResponse<IEnumerable<Order>>($"organisations/{orgGuid}/groups/{groupGuid}/orders", new { limit, offset, fromDate, toDate });
         }
 
         public async Task<Order> GetOrganisationGroupOrder(Guid orgGuid, Guid groupGuid, Guid orderId, int? limit = null, int? offset = null)
         {
-            return await this.GetApiResponse<Order>($"organisations/{orgGuid}/groups/{groupGuid}/orders/{orderId}", new { limit, offset });
+            return await GetApiResponse<Order>($"organisations/{orgGuid}/groups/{groupGuid}/orders/{orderId}", new { limit, offset });
         }
 
         public async Task<IEnumerable<FileCode>> GetOrganisationGroupFileCodes(Guid orgGuid, Guid groupGuid, int? limit = null, int? offset = null)
         {
-            return await this.GetApiResponse<IEnumerable<FileCode>>($"organisations/{orgGuid}/groups/{groupGuid}/filecodes", new { limit, offset });
+            return await GetApiResponse<IEnumerable<FileCode>>($"organisations/{orgGuid}/groups/{groupGuid}/filecodes", new { limit, offset });
         }
 
         public async Task<IEnumerable<DocketFile>> GetOrganisationGroupDocketFiles(Guid orgGuid, Guid groupGuid, int? limit = null, int? offset = null)
         {
-            return await this.GetApiResponse<IEnumerable<DocketFile>>($"organisations/{orgGuid}/groups/{groupGuid}/docketfiles", new { limit, offset });
+            return await GetApiResponse<IEnumerable<DocketFile>>($"organisations/{orgGuid}/groups/{groupGuid}/docketfiles", new { limit, offset });
         }
 
         public async Task<IEnumerable<OrganisationGroupMembers.OrganisationGroupMember>> GetOrganisationGroupMembers(Guid orgGuid, Guid groupGuid, int? limit = null, int? offset = null)
         {
-            return await this.GetApiResponse<IEnumerable<OrganisationGroupMembers.OrganisationGroupMember>>($"organisations/{orgGuid}/groups/{groupGuid}/members", new { limit, offset });
+            return await GetApiResponse<IEnumerable<OrganisationGroupMembers.OrganisationGroupMember>>($"organisations/{orgGuid}/groups/{groupGuid}/members", new { limit, offset });
         }
 
         public async Task<Order> CreateOrder(OrderDto orderDto)
@@ -89,8 +89,8 @@ namespace MAD.API.Docketbook
 
             var httpContent = new StringContent(payload, Encoding.UTF8, "application/json");
 
-            using var response = await this.httpClient.PostAsync($"organisations/{orderDto.OrganisationId}/groups/{orderDto.GroupId}/orders", httpContent);
-            await this.ThrowIfUnsuccessfulRequest(response);
+            using var response = await httpClient.PostAsync($"organisations/{orderDto.OrganisationId}/groups/{orderDto.GroupId}/orders", httpContent);
+            await ThrowIfUnsuccessfulRequest(response);
 
             var jsonText = await response.Content.ReadAsStringAsync();
 
@@ -114,8 +114,8 @@ namespace MAD.API.Docketbook
 
             var httpContent = new StringContent(payload, Encoding.UTF8, "application/json");
 
-            using var response = await this.httpClient.PutAsync($"organisations/{orderDto.OrganisationId}/groups/{orderDto.GroupId}/orders/{orderDto.Id}", httpContent);
-            await this.ThrowIfUnsuccessfulRequest(response);
+            using var response = await httpClient.PutAsync($"organisations/{orderDto.OrganisationId}/groups/{orderDto.GroupId}/orders/{orderDto.Id}", httpContent);
+            await ThrowIfUnsuccessfulRequest(response);
 
             var jsonText = await response.Content.ReadAsStringAsync();
 
@@ -127,8 +127,8 @@ namespace MAD.API.Docketbook
             var payload = JsonConvert.SerializeObject(groupDto);
             var httpContent = new StringContent(payload, Encoding.UTF8, "application/json");
 
-            using var response = await this.httpClient.PostAsync($"organisations/{groupDto.Organisation}/groups", httpContent);
-            await this.ThrowIfUnsuccessfulRequest(response);
+            using var response = await httpClient.PostAsync($"organisations/{groupDto.Organisation}/groups", httpContent);
+            await ThrowIfUnsuccessfulRequest(response);
 
             var jsonText = await response.Content.ReadAsStringAsync();
 
@@ -137,8 +137,8 @@ namespace MAD.API.Docketbook
 
         public async Task<Stream> GetOrganisationGroupDocketPdf(Guid orgGuid, Guid groupGuid, Guid docketId)
         {
-            var response = await this.httpClient.GetAsync($"organisations/{orgGuid}/groups/{groupGuid}/dockets/{docketId}/downloadpdf");
-            await this.ThrowIfUnsuccessfulRequest(response);
+            var response = await httpClient.GetAsync($"organisations/{orgGuid}/groups/{groupGuid}/dockets/{docketId}/downloadpdf");
+            await ThrowIfUnsuccessfulRequest(response);
 
             var pdfStream = await response.Content.ReadAsStreamAsync();
             return pdfStream;
@@ -149,8 +149,8 @@ namespace MAD.API.Docketbook
             var payload = JsonConvert.SerializeObject(groupDto);
             var httpContent = new StringContent(payload, Encoding.UTF8, "application/json");
 
-            using var response = await this.httpClient.PostAsync($"organisations/{groupDto.Organisation}/groups/{groupDto.OrganisationGroup}/filecodes", httpContent);
-            await this.ThrowIfUnsuccessfulRequest(response);
+            using var response = await httpClient.PostAsync($"organisations/{groupDto.Organisation}/groups/{groupDto.OrganisationGroup}/filecodes", httpContent);
+            await ThrowIfUnsuccessfulRequest(response);
 
             var jsonText = await response.Content.ReadAsStringAsync();
 
@@ -161,7 +161,7 @@ namespace MAD.API.Docketbook
         {
             if (queryParams != null)
             {
-                var nvc = this.nameValueCollectionFactory.CreateFromAnonymousObject(queryParams);                
+                var nvc = nameValueCollectionFactory.CreateFromAnonymousObject(queryParams);
                 var query = nvc.ToString();
 
                 if (string.IsNullOrWhiteSpace(query) == false)
@@ -170,8 +170,8 @@ namespace MAD.API.Docketbook
                 }
             }
 
-            using var response = await this.httpClient.GetAsync(apiUri);
-            await  this.ThrowIfUnsuccessfulRequest(response);
+            using var response = await httpClient.GetAsync(apiUri);
+            await ThrowIfUnsuccessfulRequest(response);
 
             var jsonText = await response.Content.ReadAsStringAsync();
 
