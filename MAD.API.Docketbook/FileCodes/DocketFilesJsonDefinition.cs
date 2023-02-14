@@ -8,7 +8,7 @@
     public partial class DocketFile
     {
         [JsonProperty("createdAt")]
-        public DateTimeOffset CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get; set; }
 
         [JsonProperty("docketRef")]
         public Guid DocketRef { get; set; }
@@ -32,7 +32,7 @@
         public Guid OrganisationGroup { get; set; }
 
         [JsonProperty("updatedAt")]
-        public DateTimeOffset UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get; set; }
     }
 
     public partial class DocketFileLineCode
@@ -128,7 +128,7 @@
     public partial class Interaction
     {
         [JsonProperty("createdAt")]
-        public DateTimeOffset CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get; set; }
 
         [JsonProperty("customFields")]
         public JToken CustomFields { get; set; }
@@ -205,7 +205,7 @@
                 public string Name { get; set; }
 
                 [JsonProperty("organisation")]
-                public Guid Organisation { get; set; }
+                public string Organisation { get; set; }
             }
 
             public partial class RscUom
@@ -217,7 +217,7 @@
                 public bool Active { get; set; }
 
                 [JsonProperty("createdAt")]
-                public DateTimeOffset CreatedAt { get; set; }
+                public DateTimeOffset? CreatedAt { get; set; }
 
                 [JsonProperty("description")]
                 public string Description { get; set; }
