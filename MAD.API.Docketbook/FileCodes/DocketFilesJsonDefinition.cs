@@ -90,13 +90,13 @@
                 public string Description { get; set; }
 
                 [JsonProperty("id")]
-                public Guid Id { get; set; }
+                public Guid? Id { get; set; }
 
                 [JsonProperty("name")]
                 public string Name { get; set; }
 
                 [JsonProperty("organisation")]
-                public Guid Organisation { get; set; }
+                public Guid? Organisation { get; set; }
             }
 
             public partial class RscUom
@@ -108,13 +108,13 @@
                 public bool Active { get; set; }
 
                 [JsonProperty("createdAt")]
-                public DateTimeOffset CreatedAt { get; set; }
+                public DateTimeOffset? CreatedAt { get; set; }
 
                 [JsonProperty("description")]
                 public string Description { get; set; }
 
                 [JsonProperty("id")]
-                public Guid Id { get; set; }
+                public Guid? Id { get; set; }
 
                 [JsonProperty("isTime")]
                 public bool IsTime { get; set; }
