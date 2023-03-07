@@ -8,7 +8,7 @@
     public partial class DocketFile
     {
         [JsonProperty("createdAt")]
-        public DateTimeOffset CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get; set; }
 
         [JsonProperty("docketRef")]
         public Guid DocketRef { get; set; }
@@ -32,7 +32,7 @@
         public Guid OrganisationGroup { get; set; }
 
         [JsonProperty("updatedAt")]
-        public DateTimeOffset UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get; set; }
     }
 
     public partial class DocketFileLineCode
@@ -205,7 +205,7 @@
                 public string Name { get; set; }
 
                 [JsonProperty("organisation")]
-                public Guid? Organisation { get; set; }
+                public string Organisation { get; set; }
             }
 
             public partial class RscUom

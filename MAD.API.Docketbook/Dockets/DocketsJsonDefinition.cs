@@ -38,7 +38,7 @@ namespace MAD.API.Docketbook.Dockets
         public string CustomerSignatureName { get; set; }
 
         [JsonProperty("date")]
-        public DateTimeOffset Date { get; set; }
+        public DateTime Date { get; set; }
 
         [JsonProperty("docketNumber")]
         public string DocketNumber { get; set; }
